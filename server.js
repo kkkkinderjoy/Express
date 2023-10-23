@@ -10,13 +10,13 @@ app.set('view engine', 'ejs');
 const{MongoClient, ObjectId} = require('mongodb');
 app.use(express.static(__dirname + '/public'))
 let db;
-const url =`mongodb+srv://admin:qwe1234@cluster0.5lmfgcd.mongodb.net/`
+const url =`mongodb+srv://${process.env.MONGODB_ID}:${process.env.MONGODB_PW}@cluster0.5lmfgcd.mongodb.net/`
 
 new MongoClient(url).connect().then((client)=>{
     db=client.db("CodingApple");
     console.log('DB 연결완료');
-    app.listen(8080,()=>{
-        console.log('8080번호에서 서버 실행 중')
+    app.listen(process.env.SERVER_PORT,()=>{
+        console.log(`${process.env.SERVER_PORT}번호에서 서버 실행 중`)
     })
 }).catch((error)=>{
     console.log(error)
