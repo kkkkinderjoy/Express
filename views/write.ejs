@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- html에서 데이터를 보내기 위해서는 form 태그를 사용하, form 태그의 input에는 name이 필수임!! -->
+    <!-- get은 쿼리 스트링, post는 데이터 형태로 넘어감 -->
+    <!-- form의 method는 4가지 종류(put,delete,get,post)가 있지만 2가지(post,get)밖에 못함 -->
+    <!-- 다른 라이브러리나 훅을 이용하여 업데이트,삭제를 해야함 -->
+    <form action="/add" method="post">
+        <h3>글쓰기</h3>
+        <input type="text" name="title">
+        <input type="text" name="desc">
+        <button type="submit">완료</button>
+    </form>
+</body>
+</html>

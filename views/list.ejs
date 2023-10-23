@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <!-- 마이너스(-)는 html을 렌더링 하는것, 등호(=)는 데이터를 그대로 보여주는것 -->
+    <%- include('nav.ejs') %> 
+    <!-- ejs 파일에서는 반복문을 쓰려면 for문을 사용해야함 -->
+    <% for(let i = 0; i < data.length; i++){ %>
+        <ul class="flex justify-between items-center border text-center">
+            <li class="basis-1/3"><a href="/view/<%= data[i]._id %>"><%= data[i].title %></a></li>
+            <li class="basis-1/3"><%= data[i].desc %></li> 
+            <li class="basis-1/3 flex">
+                <div><a href="/edit/<%= data[i]._id %>">✏</a></div>
+                <div><a href="/edit/<%= data[i]._id %>">🗑</a></div>
+            </li> 
+        </ul>
+    <% } %>
+    <button class="bg-blue-200 rounded-md w-25 h-8 p-5 flex items-center mt-[15px]"><a href="/write">글쓰기</a></button>
+</body>
+</html>
